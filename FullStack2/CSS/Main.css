@@ -1,0 +1,36 @@
+.games-div {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid-div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+.grid-item {
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+    background-color: #fff; /* Background color for grid items */
+    transition: transform 0.3s ease; /* Add smooth transition effect */
+    /* max-width: 20%; */
+}
+
+.grid-item:hover {
+    transform: translateY(-5px); /* Apply slight lift effect on hover */
+}
+
+.grid-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px 10px 0 0; /* Rounded corners for top of image */
+}
+
+.grid-item p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold; /* Make game name bold */
+}
