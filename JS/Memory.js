@@ -162,7 +162,7 @@ function getLevelImagePairs() {
         "../MemoryImg/eggplanet.jpg"
     ];
     const levelImages = images.slice(0, levels[currentLevel].rows * levels[currentLevel].columns / 2);
-    return levelImages.concat(levelImages);
+    return levelImages.concat(levelImages); //duplicate
 }
 
 function shuffleArray(array) {
