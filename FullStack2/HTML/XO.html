@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="../CSS/XO.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Tic Tac Toe</h2>
+        <div id="board" class="board">
+            <div class="cell" onclick="handleCellClick(0)"></div>
+            <div class="cell" onclick="handleCellClick(1)"></div>
+            <div class="cell" onclick="handleCellClick(2)"></div>
+            <div class="cell" onclick="handleCellClick(3)"></div>
+            <div class="cell" onclick="handleCellClick(4)"></div>
+            <div class="cell" onclick="handleCellClick(5)"></div>
+            <div class="cell" onclick="handleCellClick(6)"></div>
+            <div class="cell" onclick="handleCellClick(7)"></div>
+            <div class="cell" onclick="handleCellClick(8)"></div>
+        </div>
+        <p id="message"></p>
+        <button onclick="resetGame()">Reset Game</button>
+    </div>
+
+    <img id="x-img" src="../IMG/x.png" alt="X" class="hidden">
+    <img id="o-img" src="../IMG/o.png" alt="O" class="hidden">
+
+    <script src="../JS/XO.js"></script>
+</body>
+</html>
