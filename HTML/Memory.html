@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Memory.css">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <title>Memory Game</title>
+</head>
+<body>
+    <div id="game-title">Memory<br>Game</div>
+    <div id="game-container">
+        <div id="game-board"></div>
+        <div id="victory-container">
+            <img id="trophy" src="../img/trophy.png" alt="Victory Trophy">
+            <p id="victory-message">You did it!</p>
+            <p id="score">Score: 0</p>
+            <button onclick="tryAgain()" id="try-again-button">Try Again</button>
+        </div>
+        </div>        
+        <div id="level-selector">
+            <button onclick="openLevelSelector()">Select Level</button>
+            <div id="level-list" style="display: none;">
+                <button onclick="selectLevel(1)">Level 1</button>
+                <button onclick="selectLevel(2)">Level 2</button>
+                <button onclick="selectLevel(3)">Level 3</button>
+            </div>
+        </div>
+    </div>
+    <div id="choose-game-button" onclick="navigateToAllGames()">Choose Another Game</div>
+    <script src="../JS/Memory.js"></script>
+</body>
+</html>
