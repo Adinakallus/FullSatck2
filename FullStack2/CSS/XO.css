@@ -1,38 +1,42 @@
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #aed6f1; /* Light blue background */
+    font-family: 'Protest Riot', sans-serif;
 }
 
-.board {
+h1 {
+    font-family: 'Protest Riot', sans-serif;
+    color: #1a5276; /* Dark blue heading color */
+    font-size: 40px; /* Adjust font size as needed */
+}
+
+#game-board {
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-    margin-bottom: 20px;
+    grid-template-columns: repeat(3, 150px); /* Three columns each with a width of 150px */
+    grid-template-rows: repeat(3, 150px); /* Three rows each with a height of 150px */
+    gap: 10px; /* Gap between cells */
+    margin-top: 20px;
+    max-width: 50%;
+    margin: 0 auto;
 }
 
 .cell {
-    width: 100px;
-    height: 100px;
-    border: 2px solid black;
-    font-size: 2em;
+    width: 150px;
+    height: 150px;
+    background-color: #fff; /* White cell background */
+    border: 2px solid #1a5276; /* Dark blue border */
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 48px; /* Adjust font size as needed */
     cursor: pointer;
 }
 
 .cell:hover {
-    background-color: #f0f0f0;
+    background-color: #d1d8e0; /* Lighter background color on hover */
 }
 
-p {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.hidden {
-    display: none;
-}

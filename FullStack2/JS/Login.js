@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function() {
             if (password === storedPassword) {
                 // If password is correct, set loggedIn flag in Local Storage
                 localStorage.setItem("loggedIn", "true");
+                localStorage.setItem("loggedInUser", username);
+
 
                 // Redirect to dashboard or any other page
                 window.location.href = "Main.html";
