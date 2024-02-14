@@ -5,10 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="../CSS/XO.css">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
+    <div id="header-placeholder"></div> <!-- Placeholder for header content -->
+
+    <div id="game-title">Tic<br>Tac<br>Toe</div>
     <div id="game-board">
+        <div id="victory-container">
+            <img id="trophy" src="../IMG/trophy.png" alt="Victory Trophy">
+            <p id="victory-message">You won!</p>
+            <p id="score">Score: 0</p>
+            <button onclick="tryAgain()" id="try-again-button">Try Again</button>
+        </div>
+        <div id="loss-container">
+            <img id="loss-image" src="../IMG/lose.png" alt="Sad Face">
+            <p id="loss-message">You lost!</p>
+            <button onclick="tryAgain()" id="try-again-button-loss">Try Again</button>
+        </div>
+        <div id="tie-container">
+            <img id="tie-image" src="../IMG/tie.jpg" alt="Tie">
+            <p id="tie-message">It's a tie!</p>
+            <button onclick="tryAgain()" id="try-again-button-tie">Try Again</button>
+        </div>
         <div class="cell" onclick="handleCellClick(0)"></div>
         <div class="cell" onclick="handleCellClick(1)"></div>
         <div class="cell" onclick="handleCellClick(2)"></div>
@@ -19,6 +39,7 @@
         <div class="cell" onclick="handleCellClick(7)"></div>
         <div class="cell" onclick="handleCellClick(8)"></div>
     </div>
+    <div id="choose-game-button" onclick="navigateToAllGames()">Choose Another Game</div>
 
     <script src="../JS/XO.js"></script>
 </body>

@@ -4,6 +4,11 @@ const computer = 'O';
 let currentPlayer = player;
 let gameActive = true;
 
+// Hide all message containers initially
+document.getElementById("victory-container").style.visibility = "hidden";
+document.getElementById("loss-container").style.visibility = "hidden";
+document.getElementById("tie-container").style.visibility = "hidden";
+
 function handleCellClick(index) {
     const cell = cells[index];
     if (cell.textContent !== '' || !gameActive) return;
@@ -76,12 +81,35 @@ function endGame(result) {
     gameActive = false;
     if (result === 'Draw') {
         // Handle draw
-        console.log('It\'s a draw!');
+        document.getElementById("tie-container").style.visibility = "visible";
+        document.getElementById("game-board").style.visibility = "hidden";
+    } else if (result === player) {
+        // Handle player win
+        document.getElementById("victory-container").style.visibility = "visible";
+        document.getElementById("game-board").style.visibility = "hidden";
+
     } else {
-        // Handle win
-        console.log(`Player ${result} wins!`);
+        // Handle computer win
+        document.getElementById("loss-container").style.visibility = "visible";
+        document.getElementById("game-board").style.visibility = "hidden";
+
     }
-    // Save score to local storage
-    // Code to save score...
 }
 
+function tryAgain() {
+    // Reset game state and hide message containers
+    gameActive = true;
+    currentPlayer = player;
+    cells.forEach(cell => {
+        cell.textContent = '';
+    });
+    document.getElementById("victory-container").style.visibility = "hidden";
+    document.getElementById("loss-container").style.visibility = "hidden";
+    document.getElementById("tie-container").style.visibility = "hidden";
+    document.getElementById("game-board").style.visibility = "visible";
+
+}
+
+function navigateToAllGames() {
+    window.location.href = "../HTML/Main.html";
+}

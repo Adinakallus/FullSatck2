@@ -33,7 +33,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 email: email,
                 birthday: birthday,
                 gender: gender,
-                password: password
+                password: password,
+                attempts:0,
+                score:0
             };
             localStorage.setItem(username, JSON.stringify(userData));
 

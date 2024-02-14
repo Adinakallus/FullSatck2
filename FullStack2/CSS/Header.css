@@ -1,0 +1,45 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Protest Riot', sans-serif;
+    max-width: 100%;
+}
+
+header {
+    background-color: white;
+    color: #1a5276;
+    padding: 10px 0;
+    max-width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-container h1 {
+    margin: 0;
+}
+
+.auth-buttons button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.auth-buttons button:hover {
+    background-color: #45a049;
+}

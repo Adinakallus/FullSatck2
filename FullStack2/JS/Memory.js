@@ -4,9 +4,9 @@ const levels = {
     3: { rows: 4, columns: 4 }
 };
 
-const loggedInUsername = localStorage.getItem("loggedInUser");
-const loggedInUserData = JSON.parse(localStorage.getItem(loggedInUsername));
-
+// const loggedInUsername = localStorage.getItem("loggedInUser");
+// const loggedInUserData = JSON.parse(localStorage.getItem(loggedInUsername));
+// console.log(loggedInUserData.attempts)
 let currentLevel = 1;
 let totalCards = levels[currentLevel].rows * levels[currentLevel].columns;
 let selectedCards = [];
@@ -96,7 +96,7 @@ function checkMatch() {
     }
 }
 
-function victory() {
+ function victory() {
     setTimeout(() => {
         document.getElementById("trophy").style.visibility = "visible";
         document.getElementById("victory-message").style.visibility = "visible";

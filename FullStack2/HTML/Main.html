@@ -5,10 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applications</title>
     <link rel="stylesheet" href="../CSS/Main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+
+    <!-- <script>src="../JS/Header.js"</script> -->
 </head>
 <body>
+    <div id="header-placeholder"></div> <!-- Placeholder for header content -->
+
+    <!-- <script> src="Header.html"</script> -->
     <div class="games-div">
-        <h2>GAMES</h2>
+      
+ <div id="user-info">
+            <!-- Display user information here -->
+        </div>
+        <div id="additional-info">
+            <!-- Display additional user information here -->
+        </div>
         <div class="grid-div">
             <div class="grid-item">
                 <a href="XO.html" class="grid-item-link">
@@ -55,11 +67,20 @@
                 </div>
             </div>
         </div>
-        <div id="user-info">
-            <!-- Display user information here -->
-        </div>
+       
     </div>
 
+    <script src="../JS/LogOut.js"></script> <!-- Include the logout script -->
+
     <script src="../JS/Main.js"></script>
+
+    <script>
+        // Fetch and insert the header content
+        fetch('Header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 </body>
 </html>

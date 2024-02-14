@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
     <link rel="stylesheet" href="../CSS/Login.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+
 <body>
+    <div id="header-placeholder"></div> <!-- Placeholder for header content -->
+
     <div class="login-div">
         <h2>Login</h2>
         <form id="loginForm">
@@ -18,5 +22,15 @@
     </div>
 
     <script src="../JS/Login.js"></script>
+    <script src="../JS/LogOut.js"></script> <!-- Include the logout script -->
+
+    <script>
+        // Fetch and insert the header content
+        fetch('Header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 </body>
 </html>

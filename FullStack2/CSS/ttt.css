@@ -4,46 +4,61 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #aed6f1;
+    background-color: #aed6f1; /* Light blue background */
     font-family: 'Protest Riot', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 #game-title {
-    font-family: 'Protest Riot', sans-serif;
+    font-family: 'Protest Riot';
     color: #1a5276; 
     font-size: 80px; 
+    text-align: left; /* Align text to the left */
     position: absolute;
-    top: 30px;
-    left: 30px;
+    top: 50px;
+    left: 50px; /* Adjust left position */
 }
+
 #game-board {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-gap: 10px;
-    margin-top: 150px; /* Adjust this value as needed */
+    margin-top: 20px;
     max-width: 50%;
     margin: 0 auto;
     justify-content: center;
-    align-self: center;
+    align-self: center
 }
 
-
 .cell {
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
+    width: 150px;
+    height: 150px;
+    background-color: #fff; /* White cell background */
+    border: 2px solid #1a5276; /* Dark blue border */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 48px;
+    font-size: 48px; /* Adjust font size as needed */
     cursor: pointer;
-    border: 2px solid #1a5276;
 }
-
 
 .cell:hover {
-    background-color: #f0f0f0;
+    background-color: #d1d8e0; /* Lighter background color on hover */
 }
+
+.cell:nth-child(3n+1) {
+    border-left: none; /* Remove left border for every third cell */
+}
+
+.cell:nth-child(3n) {
+    border-right: none; /* Remove right border for every third cell */
+}
+
+.cell:nth-last-child(-n+3) {
+    border-bottom: none; /* Remove bottom border for last three cells */
+}
+
 #trophy {
     width: 200px;
     height: 200px;
@@ -63,7 +78,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -107,11 +122,10 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 18px; 
-    position: absolute;
+    position: fixed;
     top: 30px; 
     right: 30px; 
 }
-
 
 #choose-game-button:hover {
     background-color: #154360;
