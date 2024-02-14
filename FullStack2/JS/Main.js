@@ -1,14 +1,20 @@
-
+//main
 document.addEventListener("DOMContentLoaded", function() {
+  // localStorage.removeItem("sessionToken");
+
   // Fetch and display user information
   displayUserInfo();
 //   displayAdditionalInfo();
 
   // Function to fetch and display user information
   function displayUserInfo() {
-    console.log(JSON.parse(localStorage.getItem("currentUser")))
+    const username = JSON.parse(localStorage.getItem("currentUser")).username; // Get the username from localStorage
+ // Get the username from localStorage
+
+    console.log(JSON.parse(localStorage.getItem(username)))
       // Fetch user information from Local Storage or server
-      const userData = JSON.parse(localStorage.getItem("currentUser"));
+      const userData = JSON.parse(localStorage.getItem(username));
+
       console.log(userData)
 
       if (userData) {
@@ -25,25 +31,4 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   }
 
-//   // Function to display additional user information
-//   function displayAdditionalInfo() {
-//       // Fetch additional user information (e.g., attempts, games won)
-//       // Replace the following sample data with actual user data
-//       const additionalInfo = {
-//           firstName: "John",
-//           username: "john_doe",
-//           attempts: 10,
-//           gamesWon: 5
-//       };
-
-      // Display additional user information
-//       const additionalInfoContainer = document.getElementById("additional-info");
-//       additionalInfoContainer.innerHTML = `
-//           <h3>Additional Information</h3>
-//           <p>First Name: ${additionalInfo.firstName}</p>
-//           <p>Username: ${additionalInfo.username}</p>
-//           <p>Attempts: ${additionalInfo.attempts}</p>
-//           <p>Games Won: ${additionalInfo.gamesWon}</p>
-//       `;
-//   }
 });

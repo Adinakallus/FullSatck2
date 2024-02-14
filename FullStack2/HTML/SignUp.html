@@ -6,7 +6,25 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="../CSS/SignUp.css">
     <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
-
+    <style>
+        /* Custom styling for date picker */
+        input[type="date"] {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        /* Style for error message */
+        .error-message {
+            color: red;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div> <!-- Placeholder for header content -->
@@ -20,9 +38,9 @@
             <p id="errorMessage" class="error-message"></p>
             <input type="email" id="email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Password" required>
-            <input type="password" id="confirm-password" placeholder=" confirm Password" required>
+            <input type="password" id="confirm-password" placeholder="Confirm Password" required>
             <p id="errorMessage" class="error-message"></p>
-            <input type="date" id="birthday" placeholder="Birthday (YYYY-MM-DD)" required>
+            <input type="date" id="birthday" placeholder="Birthday" required>
             <select id="gender" required>
                 <option value="" disabled selected>Select Gender</option>
                 <option value="male">Male</option>
@@ -36,5 +54,14 @@
     </div>
 
     <script src="../JS/SignUp.js"></script>
+    <script src="../JS/Login.js"></script>
+    <script>
+        // Fetch and insert the header content
+        fetch('Header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 </body>
 </html>

@@ -1,10 +1,13 @@
+//Login
+localStorage.removeItem("sessionToken");
+
 document.addEventListener("DOMContentLoaded", function() {
         // Check if the user is already logged in (e.g., session token cookie exists)
     const sessionToken = getCookie("sessionToken");
     if (sessionToken) {
         // Verify session token on the server-side
         // If the session is valid, redirect the user to the main page/dashboard
-        window.location.href = "../HTML/Main.html"
+        // window.location.href = "../HTML/Main.html"
     }
     const loginForm = document.getElementById("loginForm");
     const errorMessage = document.getElementById("errorMessage");
@@ -17,26 +20,34 @@ document.addEventListener("DOMContentLoaded", function() {
         const password = document.getElementById("password").value;
         
         const storedUser = localStorage.getItem(username);
-
+        console.log(storedUser)
+        // console.log(JSON.parse("currentUser").password)
         if (storedUser) {
             const storedPassword = JSON.parse(storedUser).password;
 
             if (password === storedPassword) {
                 // Set session token as a cookie
                 const sessionToken = generateSessionToken();
-                setCookie("sessionToken", sessionToken, 0.1); // Cookie expires in 10 min
+                setCookie("sessionToken", sessionToken, 24); // Cookie expires in 10 min
 
                 // Store user information in localStorage
-                localStorage.setItem("currentUser", JSON.stringify({ username: username }));
+                // localStorage.setItem(username, JSON.stringify({storedUser}));
+                 localStorage.setItem("currentUser", JSON.stringify({username:username}));
+
+                
                 // Redirect to dashboard or any other page
                 window.location.href = "Main.html";
             } else {
                 errorMessage.textContent = "Incorrect password. Please try again.";
                 errorMessage.style.display = "block";
+                errorMessage.style.color="red";
+
             }
         } else {
             errorMessage.textContent="User does not exist. Please register.";
             errorMessage.style.display="block";
+            errorMessage.style.color="red";
+
         }
     });
 

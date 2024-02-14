@@ -1,17 +1,22 @@
 /* styles.css */
 
 body {
-    margin: 0;
-    padding: 0;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    background-color: #aed6f1;
     font-family: 'Protest Riot', sans-serif;
     max-width: 100%;
 }
 
+
 header {
-    background-color: white;
-    color: #1a5276;
+    background-color: #aed6f1;
+    color:#1a5276;
     padding: 10px 0;
-    max-width: 100%;
+    /* max-width: 100%; */
+    box-shadow: lightgray;
 }
 
 .header-container {
@@ -28,10 +33,12 @@ header {
 }
 
 .auth-buttons button {
-    background-color: #4CAF50;
+    background-color:#1a5276;
     color: white;
     border: none;
     padding: 10px 20px;
+    border-radius: 5px;
+
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -41,5 +48,7 @@ header {
 }
 
 .auth-buttons button:hover {
-    background-color: #45a049;
+    background-color:#1a5276;
+    border-radius: 5px;
+
 }
