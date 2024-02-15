@@ -1,115 +1,83 @@
-const cells = document.querySelectorAll('.cell');
-const player = 'X';
-const computer = 'O';
-let currentPlayer = player;
-let gameActive = true;
+document.addEventListener("DOMContentLoaded", function() {
+    const cells = document.querySelectorAll('.cell');
+    let currentPlayer = 'X';
+    let gameActive = true;
+    let userData = JSON.parse(localStorage.getItem("currentUser"));
+    let userScore = userData ? userData.score : 0;
 
-// Hide all message containers initially
-document.getElementById("victory-container").style.visibility = "hidden";
-document.getElementById("loss-container").style.visibility = "hidden";
-document.getElementById("tie-container").style.visibility = "hidden";
-
-function handleCellClick(index) {
-    const cell = cells[index];
-    if (cell.textContent !== '' || !gameActive) return;
-
-    // Player's move
-    cell.textContent = currentPlayer;
-
-    // Check for win/draw
-    if (checkWin(player)) {
-        // Player wins
-        endGame(player);
-    } else if (isDraw()) {
-        // Draw
-        endGame('Draw');
-    } else {
-        // Switch to computer's turn
-        currentPlayer = computer;
-        computerMove();
-    }
-}
-
-function computerMove() {
-    // Choose a random empty cell for computer's move
-    let emptyCells = [...cells].filter(cell => cell.textContent === '');
-    const randomIndex = Math.floor(Math.random() * emptyCells.length);
-    const randomCell = emptyCells[randomIndex];
-    randomCell.textContent = currentPlayer;
-
-    // Check for win/draw after computer's move
-    if (checkWin(computer)) {
-        // Computer wins
-        endGame(computer);
-    } else if (isDraw()) {
-        // Draw
-        endGame('Draw');
-    } else {
-        // Switch to player's turn
-        currentPlayer = player;
-    }
-}
-
-function checkWin(player) {
-    // Check rows, columns, and diagonals for win
-    return (
-        checkRow(0, 1, 2, player) || 
-        checkRow(3, 4, 5, player) || 
-        checkRow(6, 7, 8, player) || 
-        checkRow(0, 3, 6, player) || 
-        checkRow(1, 4, 7, player) || 
-        checkRow(2, 5, 8, player) || 
-        checkRow(0, 4, 8, player) || 
-        checkRow(2, 4, 6, player)
-    );
-}
-
-function checkRow(a, b, c, player) {
-    return (
-        cells[a].textContent === player && 
-        cells[b].textContent === player && 
-        cells[c].textContent === player
-    );
-}
-
-function isDraw() {
-    // Check if all cells are filled
-    return [...cells].every(cell => cell.textContent !== '');
-}
-
-function endGame(result) {
-    gameActive = false;
-    if (result === 'Draw') {
-        // Handle draw
-        document.getElementById("tie-container").style.visibility = "visible";
-        document.getElementById("game-board").style.visibility = "hidden";
-    } else if (result === player) {
-        // Handle player win
-        document.getElementById("victory-container").style.visibility = "visible";
-        document.getElementById("game-board").style.visibility = "hidden";
-
-    } else {
-        // Handle computer win
-        document.getElementById("loss-container").style.visibility = "visible";
-        document.getElementById("game-board").style.visibility = "hidden";
-
-    }
-}
-
-function tryAgain() {
-    // Reset game state and hide message containers
-    gameActive = true;
-    currentPlayer = player;
     cells.forEach(cell => {
-        cell.textContent = '';
+        cell.addEventListener('click', handleCellClick);
     });
-    document.getElementById("victory-container").style.visibility = "hidden";
-    document.getElementById("loss-container").style.visibility = "hidden";
-    document.getElementById("tie-container").style.visibility = "hidden";
-    document.getElementById("game-board").style.visibility = "visible";
 
-}
+    function handleCellClick(event) {
+        console.log("Cell clicked"); // Check if this message appears in the console
+        const cell = event.target;
+        const index = cell.dataset.index;
 
-function navigateToAllGames() {
-    window.location.href = "../HTML/Main.html";
-}
+        if (cell.textContent !== '' || !gameActive) return;
+
+        cell.textContent = currentPlayer;
+
+        if (checkWin(currentPlayer)) {
+            endGame(currentPlayer);
+            if (currentPlayer === 'X') {
+                userScore += 10;
+                updateScore(userScore);
+                userData.score = userScore;
+                localStorage.setItem("currentUser", JSON.stringify(userData));
+            }
+        } else if (isDraw()) {
+            endGame('Draw');
+        } else {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            computerMove();
+        }
+    }
+
+    function computerMove() {
+        // Choose a random empty cell for the computer's move
+        let emptyCells = [...cells].filter(cell => cell.textContent === '');
+        const randomIndex = Math.floor(Math.random() * emptyCells.length);
+        const randomCell = emptyCells[randomIndex];
+        randomCell.textContent = currentPlayer;
+
+        if (checkWin(currentPlayer)) {
+            endGame(currentPlayer);
+        } else if (isDraw()) {
+            endGame('Draw');
+        } else {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+    }
+
+    function checkWin(player) {
+        // Define winning combinations
+        const winCombos = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+            [0, 4, 8], [2, 4, 6] // Diagonals
+        ];
+
+        return winCombos.some(combo => {
+            return combo.every(index => cells[index].textContent === player);
+        });
+    }
+
+    function isDraw() {
+        return [...cells].every(cell => cell.textContent !== '');
+    }
+
+    function endGame(result) {
+        gameActive = false;
+        if (result === 'Draw') {
+            alert('It\'s a draw!');
+        } else {
+            alert(`Player ${result} wins!\nScore: ${userScore}`);
+        }
+    }
+
+    function updateScore(score) {
+        const scoreElement = document.getElementById('score');
+        scoreElement.textContent = `Score: ${score}`;
+    }
+});

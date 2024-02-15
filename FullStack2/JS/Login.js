@@ -1,5 +1,5 @@
 //Login
-localStorage.removeItem("sessionToken");
+//localStorage.removeItem("sessionToken");
 
 document.addEventListener("DOMContentLoaded", function() {
         // Check if the user is already logged in (e.g., session token cookie exists)
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (sessionToken) {
         // Verify session token on the server-side
         // If the session is valid, redirect the user to the main page/dashboard
-        // window.location.href = "../HTML/Main.html"
+        window.location.href = "../HTML/Main.html"
     }
     const loginForm = document.getElementById("loginForm");
     const errorMessage = document.getElementById("errorMessage");

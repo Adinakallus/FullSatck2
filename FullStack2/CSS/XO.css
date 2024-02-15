@@ -1,4 +1,4 @@
-body {
+/* body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,14 +21,26 @@ body {
     grid-template-columns: repeat(3, 100px);
     grid-gap: 10px;
     margin-top: 150px; /* Adjust this value as needed */
-    max-width: 50%;
+    /* max-width: 50%;
     margin: 0 auto;
     justify-content: center;
     align-self: center;
+} */
+
+/* .cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    cursor: pointer;
+    border: none; Remove the border 
 }
 
 
-.cell {
+/* .cell {
     width: 100px;
     height: 100px;
     background-color: #fff;
@@ -38,7 +50,7 @@ body {
     font-size: 48px;
     cursor: pointer;
     border: 2px solid #1a5276;
-}
+} */
 
 
 .cell:hover {
@@ -96,7 +108,7 @@ body {
 #try-again-button {
     display: block;
 }
-
+/* 
 #choose-game-button {
     font-family: 'Protest Riot', sans-serif;
     background-color: #1a5276;
@@ -115,4 +127,63 @@ body {
 
 #choose-game-button:hover {
     background-color: #154360;
+} */ 
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #aed6f1;
+    font-family: 'Protest Riot', sans-serif;
+}
+
+#game-title {
+    font-family: 'Protest Riot', sans-serif;
+    color: #1a5276; 
+    font-size: 80px; 
+    position: absolute; /* Position absolutely */
+    top: 50%; /* Center vertically */
+    left: 30px; /* Adjust as needed */
+    transform: translateY(-50%); /* Center vertically */
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 10px;
+  /*  margin-top: 150px; /* Adjust this value as needed */
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    justify-content: center;
+    align-self: center;
+    position: relative; /* Ensure relative positioning */
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    cursor: pointer;
+    border: none; /* Remove the border */
+}
+
+#choose-game-button {
+    font-family: 'Protest Riot', sans-serif;
+    background-color: #1a5276;
+    color: #fff;
+    padding: 15px 20px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px; 
+    position: absolute; /* Position absolutely */
+    top: 30px; /* Adjust as needed */
+    right: 30px; /* Adjust as needed */
 }

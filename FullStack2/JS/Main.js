@@ -21,12 +21,10 @@ document.addEventListener("DOMContentLoaded", function() {
           // Display user information
           const userInfoContainer = document.getElementById("user-info");
           userInfoContainer.innerHTML = `
-              <h3>Welcome, ${userData.username}!</h3>
+              <h3>Welcome, ${userData.firstName}!</h3>
               <p>Email: ${userData.email}</p>
-              <p>Top Memory game score: ${userData.attempts}</p>
-              <p>Top Tic Tac Toe score: ${userData.score}</p>
+             
 
-              <!-- Add more user information here -->
           `;
       }
   }
