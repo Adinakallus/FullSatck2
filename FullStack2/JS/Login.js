@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (password === storedPassword) {
                 // Set session token as a cookie
                 const sessionToken = generateSessionToken();
-                setCookie("sessionToken", sessionToken, 24); // Cookie expires in 10 min
+                setCookie("sessionToken", sessionToken, 0.01); // Cookie expires in 10 min
 
                 // Store user information in localStorage
                 // localStorage.setItem(username, JSON.stringify({storedUser}));
